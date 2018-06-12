@@ -1,4 +1,4 @@
-from os import system
+from os import system, name
 from random import choice
 from time import sleep
 from click import command, option, echo
@@ -11,9 +11,9 @@ back = list(vars(Back).values())
 
 
 def clear():
-    try:
+    if name == 'posix':
         system('clear')
-    except Exception:
+    else:
         system('cls')
 
 
